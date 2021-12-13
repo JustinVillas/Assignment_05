@@ -1,8 +1,15 @@
 import math
 
 
+def round_dec(n):
+    if n - math.floor(n) < 0.5:
+        return math.floor(n)
+    return math.ceil(n)
+
+
 def student_grade():
-    grade = float(input("Input Grade: "))
+    student_int = float(input("Grade: "))
+    grade = round_dec(student_int)
     if grade >= 97 and grade <= 100:
         print("Equivalent: 1.0 ")
         print("Description: Excellent")
@@ -38,15 +45,22 @@ def student_grade():
     return grade
 
 
-def otherRemarks():
-    answer = input(
-        " Do you have a remarks get of INC(Incomplete), W(Withdraw), or D(Dropout)? ").upper()
+def issues():
+    print("-------------------------------------------------------------------")
+    print("Do you have a remarks get of INC(Incomplete), W(Withdraw), or D(Dropout)?")
+    answer = input("NO/YES: ").upper()
     if answer == "YES":
-        print("Sorry to said that you are subjected to fail this semester. Consult your teachers if you could do something about it. ")
-    elif answer == "NO":
-        print("Congratulation student, you've gained the fruits of your hardwork.You deserve a virtual applause. ")
+        print("-------------------------------------------------------------------")
+        print(
+            "Sorry to said that you are subjected to fail this semester. Consult your teachers if you could do something about it. "
+        )
+    else:
+        print("-------------------------------------------------------------------")
+        print(
+            "Congratulation student, you've gained the fruits of your hardwork.You deserve a virtual applause. "
+        )
     return answer
 
 
 student_grade()
-otherRemarks()
+issues()
